@@ -1,0 +1,4 @@
+name: CIAssignmentDriver_runCI
+type: runCI
+steps:
+  - IN: CIAssignmentDriver_ciRepo
