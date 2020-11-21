@@ -138,12 +138,63 @@ public class Main {
         courses.get(1).setStudents(students.get(0));
 
 
-        System.out.println("Student Details");
+        System.out.println(">>>>>>>>>>>>>>Student Details<<<<<<<<<<<<<" +"\n");
 
         for (Student student : students)
         {
             System.out.println("Name:" +student.getStudentName() +"\n" +"Age"+student.getStudentAge() +"\n"
                     +"Date Of Birth:" +student.getDOB() + "\n" +"Id:" +student.getStudentID() +"\n" + "Username:" +student.getStudentUsername() + "\n");
+
+
+            for (Course course : student.getStudentCourses()){
+                System.out.println("Course Name:" +course.getCourseName() + "\n" + "Start Date:" +course.getStartDate() + "\n"+
+                        "End Date:" +course.getEndDate()+"\n");
+
+
+
+                for(Module module: student.getStudentMods()){
+                    System.out.println("Module Name: " +module.getModName() +"\n"+ "Module Id:" +module.getModId()+ "\n");
+
+                }
+
+            }
+
+        }
+        System.out.println(">>>>>>>>>>>>>>Courses Details<<<<<<<<<<<<<" +"\n");
+
+        for (Course course: courses){
+            System.out.println("Name of Course: " +course.getCourseName()+"\n"+ "Course StartDate" +course.getStartDate()+"\n"+ "Course EndDate" +course.getEndDate() +"\n");
+
+            for (Module module: course.getModules()){
+                System.out.println("Module Name:" +module.getModName() +"\n" + "Module Id:" +module.getModId() +"\n");
+
+               for (Student student: course.getStudents()) {
+                   System.out.println("Name:" +student.getStudentName() +"\n" +"Age"+student.getStudentAge() +"\n"
+                           +"Date Of Birth:" +student.getDOB() + "\n" +"Id:" +student.getStudentID() +"\n" + "Username:" +student.getStudentUsername() + "\n");
+               }
+
+            }
+
+
+
+
+        }
+
+        System.out.println(">>>>>>>>>>>>>>Modules Details<<<<<<<<<<<<<" +"\n");
+        for(Module module: modules){
+            System.out.println("Name:"+module.getModName()+"\n" +"Module Id:" +module.getModId() +"\n");
+
+            for(Student student: module.getListOfStudents()){
+                System.out.println("Name:" +student.getStudentName() +"\n" +"Age"+student.getStudentAge() +"\n"
+                        +"Date Of Birth:" +student.getDOB() + "\n" +"Id:" +student.getStudentID() +"\n" + "Username:" +student.getStudentUsername() + "\n");
+
+            }
+
+            for (Course course: module.getListOfCourses()){
+
+                System.out.println("Name of Course: " +course.getCourseName()+"\n"+ "Course StartDate" +course.getStartDate()+"\n"+ "Course EndDate" +course.getEndDate() +"\n");
+
+            }
 
         }
 
