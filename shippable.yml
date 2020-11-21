@@ -1,4 +1,6 @@
-name: CIAssignmentDriver_runCI
-type: runCI
-steps:
-  - IN: CIAssignmentDriver_ciRepo
+language: java
+jdk:
+  - oraclejdk11
+build:
+  ci:
+    - mvn clean package
