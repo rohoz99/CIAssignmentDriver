@@ -13,6 +13,9 @@ public class Main {
         ArrayList<Module> modules = new ArrayList<Module>(100);
         ArrayList<Course> courses = new ArrayList<Course>(100);
 
+        DateTimeFormatter dateFormat = DateTimeFormat.forPattern ("dd-MM-yy");
+
+
         String student1Name = "Rohin Joseph";
         int student1Age = 21;
         DateTime student1DOB = new DateTime(1999,1,29,0,0);
@@ -112,10 +115,37 @@ public class Main {
 
 
 
+        modules.get(0).setStudentList(students.get(0));
+        modules.get(1).setStudentList(students.get(0));
+        modules.get(1).setStudentList(students.get(1));
+        modules.get(2).setStudentList(students.get(2));
+        modules.get(3).setStudentList(students.get(3));
+        modules.get(4).setStudentList(students.get(2));
+//        modules.get(4).setStudentList(students.get(4));
 
 
 
+        courses.get(0).setModules(modules.get(1));
+        courses.get(0).setModules(modules.get(2));
+        courses.get(0).setModules(modules.get(3));
+        courses.get(1).setModules(modules.get(3));
+        courses.get(1).setModules(modules.get(4));
+        courses.get(1).setModules(modules.get(0));
 
+        courses.get(0).setStudents(students.get(1));
+        courses.get(0).setStudents(students.get(2));
+        courses.get(0).setStudents(students.get(3));
+        courses.get(1).setStudents(students.get(0));
+
+
+        System.out.println("Student Details");
+
+        for (Student student : students)
+        {
+            System.out.println("Name:" +student.getStudentName() +"\n" +"Age"+student.getStudentAge() +"\n"
+                    +"Date Of Birth:" +student.getDOB() + "\n" +"Id:" +student.getStudentID() +"\n" + "Username:" +student.getStudentUsername() + "\n");
+
+        }
 
     }
 
