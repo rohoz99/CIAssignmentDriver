@@ -13,9 +13,9 @@ public class Main {
         ArrayList<Module> modules = new ArrayList<Module>(100);
         ArrayList<Course> courses = new ArrayList<Course>(100);
 
-        DateTimeFormatter dateFormat = DateTimeFormat.forPattern ("dd-MM-yy");
+        DateTimeFormatter dateFormat = DateTimeFormat.forPattern ("dd-MM-yy"); // DateTimeFormat allows the date to be represented as dd-mm--yy
 
-
+// Setting required Student details
         String student1Name = "Rohin Joseph";
         int student1Age = 21;
         DateTime student1DOB = new DateTime(1999,1,29,0,0);
@@ -37,7 +37,7 @@ public class Main {
         DateTime student4DOB = new DateTime(1975,8,12,0,0);
         int student4Id = 12390937;
 
-
+// Setting required module details
         String module1Name = "Machine Learning";
         String module2Name ="Graphics and Image Processing";
         String module3Name = "Software Engineering";
@@ -49,7 +49,7 @@ public class Main {
         String module3Id = "CT489";
         String module4Id = "CT433";
         String module5Id = "CT421";
-
+// Setting required Course details
         String course1Name = "Computer Science";
         DateTime course1StartDate = new DateTime(2021,8,12,0,0);
         DateTime course1EndDate = new DateTime(2024,6,25,0,0);
@@ -67,7 +67,7 @@ public class Main {
         courses.add(course1);
         courses.add(course2);
 
-
+// Creating instances of student
         Student student1 = new Student(student1Name,student1Age,student1DOB,student1Id);
 
         Student student2 = new Student(student2Name,student2Age,student2DOB,student2Id);
@@ -75,12 +75,12 @@ public class Main {
         Student student3 = new Student(student3Name,student3Age,student3DOB,student3Id);
 
         Student student4 = new Student(student4Name,student4Age,student4DOB,student4Id);
-
+// Adding to Array List
         students.add(student1);
         students.add(student2);
         students.add(student3);
         students.add(student4);
-
+// Creating instances of modules
         Module module1 = new Module(module1Name,module1Id);
         Module module2 = new Module(module2Name,module2Id);
         Module module3 = new Module(module3Name,module3Id);
@@ -93,19 +93,19 @@ public class Main {
         modules.add(module4);
         modules.add(module5);
 
-
+// Setting courses for each student
         students.get(0).setStudentCourses(courses.get(1));
         students.get(1).setStudentCourses(courses.get(0));
         students.get(2).setStudentCourses(courses.get(1));
         students.get(3).setStudentCourses(courses.get(0));
-
+// Setting modules for each student
         students.get(0).setStudentMods(modules.get(1));
         students.get(0).setStudentMods(modules.get(0));
         students.get(1).setStudentMods(modules.get(3));
         students.get(1).setStudentMods(modules.get(0));
         students.get(2).setStudentMods(modules.get(2));
         students.get(3).setStudentMods(modules.get(4));
-
+// Setting courses for each module
         modules.get(0).setCourseList(courses.get(0));
         modules.get(1).setCourseList(courses.get(0));
         modules.get(2).setCourseList(courses.get(1));
@@ -114,8 +114,8 @@ public class Main {
         modules.get(4).setCourseList(courses.get(0));
 
 
-
-        modules.get(0).setStudentList(students.get(0));
+// Setting students for each module
+      modules.get(0).setStudentList(students.get(0));
         modules.get(1).setStudentList(students.get(0));
         modules.get(1).setStudentList(students.get(1));
         modules.get(2).setStudentList(students.get(2));
@@ -124,6 +124,7 @@ public class Main {
 //        modules.get(4).setStudentList(students.get(4));
 
 
+// Setting modules for each course
 
         courses.get(0).setModules(modules.get(1));
         courses.get(0).setModules(modules.get(2));
@@ -132,9 +133,12 @@ public class Main {
         courses.get(1).setModules(modules.get(4));
         courses.get(1).setModules(modules.get(0));
 
+
+        //Setting students for each course
+
         courses.get(0).setStudents(students.get(1));
         courses.get(0).setStudents(students.get(2));
-        courses.get(0).setStudents(students.get(3));
+        courses.get(1).setStudents(students.get(3));
         courses.get(1).setStudents(students.get(0));
 
 
@@ -148,7 +152,7 @@ public class Main {
 
             for (Course course : student.getStudentCourses()){
                 System.out.println("Course Name:" +course.getCourseName() + "\n" + "Start Date: " +dateFormat.print(course.getStartDate()) + "\n"+
-                        "End Date: " +course.getEndDate()+"\n");
+                        "End Date: " +dateFormat.print(course.getEndDate())+"\n");
 
 
 
@@ -163,7 +167,7 @@ public class Main {
         System.out.println(">>>>>>>>>>>>>>Courses Details<<<<<<<<<<<<<" +"\n");
 
         for (Course course: courses){
-            System.out.println("Name of Course: " +course.getCourseName()+"\n"+ "Course StartDate: " +dateFormat.print(course.getStartDate())+"\n"+ "Course EndDate: " +dateFormat.print(course.getEndDate()) +"\n");
+            System.out.println("Name of Course: " +course.getCourseName()+"\n"+ "Course StartDate: " +dateFormat.print(course.getStartDate())+"\n"+ "Course EndDate: " + dateFormat.print(course.getEndDate()) + "\n");
 
             for (Module module: course.getModules()){
                 System.out.println("Module Name:" +module.getModName() +"\n" + "Module Id:" +module.getModId() +"\n");
